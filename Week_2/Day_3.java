@@ -4,7 +4,7 @@ public class Day_3{
     // Implement strStr()
     // https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
     // Time Complexity = O(n*m)    
-    // Space Complexiy = O(n) 
+    // Space Complexiy = O(m) 
     public int strStr(String haystack, String needle) {
         for(int i = 0, j = needle.length(); j<=haystack.length(); i++,j++){
             if(haystack.substring(i,j).equals(needle)){
@@ -39,7 +39,7 @@ public class Day_3{
     // Question 3
     // Repeated Substring Pattern
     // https://leetcode.com/problems/repeated-substring-pattern/
-    // Time Complexity = O(n)
+    // Time Complexity = O(n*n)
     // Space Complexiy = O(n)
     public boolean repeatedSubstringPattern(String s) {
         String concatenated = s + s;
