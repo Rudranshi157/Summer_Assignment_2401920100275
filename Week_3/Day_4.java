@@ -1,14 +1,6 @@
 import java.util.*;
-public class Day_3{
+public class Day_4{
 
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 
     // Question 1
     // Daily Temperatures
