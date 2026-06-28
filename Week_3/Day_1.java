@@ -11,8 +11,8 @@ public class Day_1{
     }
 
     // Question 1
-    // Linked List Cycle
-    // https://leetcode.com/problems/linked-list-cycle/
+    // Maximum Depth of Binary Tree
+    // https://leetcode.com/problems/maximum-depth-of-binary-tree/
     // Time Complexity = O(n)    
     // Space Complexiy = O(1) 
     public boolean hasCycle(ListNode head) {
@@ -31,8 +31,8 @@ public class Day_1{
     }
 
     // Question 2
-    // Reverse Linked List
-    // https://leetcode.com/problems/reverse-linked-list/
+    // Invert Binary Tree
+    // https://leetcode.com/problems/invert-binary-tree/
     // Time Complexity = O(n)      
     // Space Complexiy = O(1) 
     public ListNode reverseList(ListNode head) {
@@ -49,8 +49,8 @@ public class Day_1{
 
 
     // Question 3
-    // Middle of the Linked List
-    // https://leetcode.com/problems/middle-of-the-linked-list/
+    // Same Tree
+    // https://leetcode.com/problems/same-tree/
     // Time Complexity = O(n)
     // Space Complexiy = O(1) 
     public ListNode middleNode(ListNode head) {
