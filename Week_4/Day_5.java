@@ -1,93 +1,39 @@
-import java.util.*;
 public class Day_5{
 
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
 
     // Question 1
-    // Implement Queue using Stacks
-    // https://leetcode.com/problems/implement-queue-using-stacks/
+    // Symmetric Tree
+    // https://leetcode.com/problems/symmetric-tree/description/
     // Time Complexity = O(n)    
-    // Space Complexiy = O(n) 
-    class MyQueue {
-    Stack<Integer> s1 = new Stack<>();
-    Stack<Integer> s2 = new Stack<>();
-    public MyQueue() {
-        
-    }
-    
-    public void push(int x) {
-        if(s1.isEmpty()){
-            s2.push(x);
-        }else{
-            s1.push(x);
+    // Space Complexiy = O(1) 
+    public boolean isSame(TreeNode left, TreeNode right){
+        if(left == null && right == null) return true;
+        else if(left == null || right == null) return false;
+        if(left.val == right.val){
+            return isSame(left.left, right.right) && isSame(left.right, right.left);
         }
+        return false;
     }
-    
-    public int pop() {
-        if(s1.isEmpty() && s2.isEmpty()){
-            return -1;
-        }
-        int temp=-1;
-        if(s1.isEmpty()){
-            while(!s2.isEmpty()){
-                temp = s2.pop();
-                if(s2.isEmpty()){
-                    break;
-                }
-                s1.push(temp);
-            }
-            while(!s1.isEmpty()){
-                s2.push(s1.pop());
-            }
-
-        }else{
-            while(!s1.isEmpty()){
-                temp= s1.pop();
-                if(s1.isEmpty()){
-                    break;
-                }
-                s2.push(temp);
-            }
-            while(!s2.isEmpty()){
-                s1.push(s2.pop());
-            }
-        }
-        return temp;
+    public boolean isSymmetric(TreeNode root) {
+        if(root == null)return true;
+        return isSame(root.left, root.right);
     }
-    
-    public int peek() {
-        if(s1.isEmpty() && s2.isEmpty()){
-            return -1;
-        }
-        int temp=-1;
-        if(s1.isEmpty()){
-            while(!s2.isEmpty()){
-                temp = s2.pop();
-                s1.push(temp);
-            }
-            while(!s1.isEmpty()){
-                s2.push(s1.pop());
-            }
-
-        }else{
-            while(!s1.isEmpty()){
-                temp= s1.pop();
-                s2.push(temp);
-            }
-            while(!s2.isEmpty()){
-                s1.push(s2.pop());
-            }
-        }
-        return temp;
-    }
-    
-    public boolean empty() {
-        return s1.isEmpty() && s2.isEmpty();
-    }
-}
 
     // Question 2
-    // Number of Recent Calls
-    // https://leetcode.com/problems/number-of-recent-calls/
+    // Construct Binary Tree from Preorder and Inorder Traversal
+    // https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
     // Time Complexity = O(1)   
     // Space Complexiy = O(n) 
     class RecentCounter {

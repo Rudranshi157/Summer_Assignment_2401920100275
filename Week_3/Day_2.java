@@ -1,5 +1,5 @@
 
-public class Day_1{
+public class Day_2{
 
     static class ListNode {
         int val;

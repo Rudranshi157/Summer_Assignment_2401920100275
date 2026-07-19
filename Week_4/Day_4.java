@@ -1,4 +1,3 @@
-import java.util.*;
 public class Day_4{
 
     public class TreeNode {
@@ -17,25 +16,17 @@ public class Day_4{
     // Path Sum
     // https://leetcode.com/problems/path-sum/
     // Time Complexity = O(n)    
-    // Space Complexiy = O(n) 
-    public int[] dailyTemperatures(int[] temperatures) {
-        Stack<Integer> s = new Stack<>();
-        
-        int n = temperatures.length;
-        int ans[] = new int[n];
-        s.push(n-1);
-        for(int i = n-2; i>=0; i--){
-            while(!s.isEmpty() ){
-                if(temperatures[s.peek()] > temperatures[i]){
-                    ans[i] = s.peek()-i;
-                    break;
-                }else{
-                    s.pop();
-                }
-            }
-            s.push(i);
+    // Space Complexiy = O(1) 
+    public boolean helper(TreeNode root, int target, int prev){
+        if(root == null) return false;
+        root.val += prev;
+        if(root.left == null && root.right == null && root.val == target){
+            return true;
         }
-        return ans;
+        return helper(root.left, target, root.val) || helper(root.right, target, root.val);
+    }
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        return helper(root, targetSum, 0);
     }
 
     // Question 2
